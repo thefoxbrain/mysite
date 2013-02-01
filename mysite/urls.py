@@ -5,7 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 from django.conf.urls.defaults import *
 from mysite.views import hello, current_datetime, hours_ahead
-from books import views
+from mysite.books import views as books_views
+from mysite.contact import views as contact_views
 
 urlpatterns = patterns('',
     # Examples:
@@ -20,6 +21,7 @@ urlpatterns = patterns('',
 	('^hello/$', hello),
 	('^time/$', current_datetime),
 	(r'^time/plus/(\d{1,2})/$', hours_ahead),
-	(r'^search-form/$', views.search_form),
-	(r'^search/$', views.search),
+	(r'^search-form/$', books_views.search_form),
+	(r'^search/$', books_views.search),
+	(r'^contact/$', contact_views.contact),
 )
